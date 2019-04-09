@@ -21,7 +21,6 @@ class LoginScreen extends Component {
   }
 
   static propTypes = {
-    value: PropTypes.string,// throws a warning if the value is not a string
     info: PropTypes.string,// throws a warning if the info is not a string
   }
 

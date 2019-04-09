@@ -21,26 +21,26 @@ import CardComponent from '../components/CardComponent';
 import {Container,Row,Col,Button,Form,ListGroup} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 /* We import UniqueId to create a unique id automatically. */
-import UniqueId from 'react-html-id';
+//import UniqueId from 'react-html-id';
 
 class DashBoardComponent extends Component {
   constructor(props) {
     super(props);
-      UniqueId.enableUniqueIds(this);
+    //  UniqueId.enableUniqueIds(this);
         this.state ={
               userList:[
-                {id:this.nextUniqueId(), name: 'Mimmi', isActive: true},
-                {id:this.nextUniqueId(), name: 'Kalle', isActive: false},
-                {id:this.nextUniqueId(), name: 'Klara', isActive: true},
-                {id:this.nextUniqueId(), name: 'John', isActive: true},
-                {id:this.nextUniqueId(), name: 'Stina', isActive: false}
+                {id:1, name: 'Mimmi', isActive: true},
+                {id:2, name: 'Kalle', isActive: false},
+                {id:3, name: 'Klara', isActive: true},
+                {id:4, name: 'John', isActive: true},
+                {id:5, name: 'Stina', isActive: false}
                     ],
               newuserList:[
-                {id:this.nextUniqueId(), name: 'Mimmi', isActive: true},
-                {id:this.nextUniqueId(), name: 'Kalle', isActive: false},
-                {id:this.nextUniqueId(), name: 'Klara', isActive: true},
-                {id:this.nextUniqueId(), name: 'John', isActive: true},
-                {id:this.nextUniqueId(), name: 'Stina', isActive: false}
+                {id:1, name: 'Mimmi', isActive: true},
+                {id:2, name: 'Kalle', isActive: false},
+                {id:3, name: 'Klara', isActive: true},
+                {id:4, name: 'John', isActive: true},
+                {id:5, name: 'Stina', isActive: false}
                       ],
              value: '',
              color:true,
@@ -51,20 +51,15 @@ class DashBoardComponent extends Component {
     }
 
   static propTypes = {
-      /* userList and  newuserList are array and evry item is an object, so they have propTypes as shape.*/
-      userList: PropTypes.shape({
-                          id: PropTypes.string,// throws a warning if the id is not a string.
+      /* user is an array and evry item is an object, so they have propTypes as shape.*/
+      user: PropTypes.shape({
+                          id: PropTypes.number,// throws a warning if the id is not a string.
                           name: PropTypes.string,// throws a warning if the name is not a string.
                           isActive:PropTypes.bool,// throws a warning if the isActive is not a boolean.
                           }),
-     newuserList: PropTypes.shape({
-                          id: PropTypes.string,
-                          name: PropTypes.string,
-                          isActive:PropTypes.bool,
-                              }),
-    value: PropTypes.string,// throws a warning if the value is not a string.
+
+
     color: PropTypes.bool,//throws a warning if the color is not a boolean.
-    isActiveBtn:PropTypes.bool//throws a warning if the isActiveBtn is not a boolean.
   }
 
 /*A method which controls and changes the value of the input field in the form by using setState */
@@ -80,9 +75,11 @@ class DashBoardComponent extends Component {
  isActive: set to true.
 }*/
   addUserName(event) {
-    UniqueId.enableUniqueIds(this);
-    const newUser=this.state.userList.concat([{id:this.nextUniqueId(), name: this.state.value, isActive: true}]);
+  //  UniqueId.enableUniqueIds(this);
+    //const newUser=this.state.userList.concat([{id:this.nextUniqueId(), name: this.state.value, isActive: true}]);
+    const newUser=this.state.userList.concat([{id:this.state.userList.length+1, name: this.state.value, isActive: true}]);
     this.setState({userList: newUser});
+    this.setState({newuserList: newUser});
     event.preventDefault();
   }
   /*A method which remove an item from userList . */
@@ -106,6 +103,7 @@ class DashBoardComponent extends Component {
     If (this.state.isActiveBtn) is true so show the users who are active.
     If (!this.state.isActiveBtn) is false so show the users who are not active. */
   showActiveUsers = (e) => {
+
       this.setState({
         isActiveBtn: !this.state.isActiveBtn,
       })
@@ -129,6 +127,7 @@ class DashBoardComponent extends Component {
         })
          this.setState({newuserList: notactiveUsers});
       }
+
   }
 
 

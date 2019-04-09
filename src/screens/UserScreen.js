@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom";
 import CardComponent from '../components/CardComponent';
 
 class UserScreen extends Component {
+  
   render() {
     const user = this.props.match.params.id;
       return (

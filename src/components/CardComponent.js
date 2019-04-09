@@ -19,7 +19,7 @@ class CardComponent extends Component {
   }
 
     static propTypes = {
-      showInfo: PropTypes.bool,// throws a warning if showInfo is not boolean
+      info: PropTypes.string,// throws a warning if info is not string
     }
 
   /* toggleInfo is a method to change the state (showInfo) from true till false or vice versa

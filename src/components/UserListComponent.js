@@ -25,7 +25,7 @@ const greenColor = '#26B001';
 /* userList is an array and evry item is an object, so it has propTypes as shape.*/
   UserListComponent.propTypes = {
       user: PropTypes.PropTypes.shape({
-                            id: PropTypes.string,// throws a warning if the id is not a string.
+                            id: PropTypes.number,// throws a warning if the id is not a string.
                             name: PropTypes.string,// throws a warning if the name is not a string.
                             isActive:PropTypes.bool,// throws a warning if the isActive is not a boolean.
                             }),
