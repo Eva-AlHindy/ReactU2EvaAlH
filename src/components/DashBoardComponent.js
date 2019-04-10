@@ -19,7 +19,7 @@ import React, { Component , Fragment} from 'react';
 import UserListComponent from '../components/UserListComponent';
 import CardComponent from '../components/CardComponent';
 import {Container,Row,Col,Button,Form,ListGroup} from 'react-bootstrap';
-import PropTypes from 'prop-types';
+
 /* We import UniqueId to create a unique id automatically. */
 //import UniqueId from 'react-html-id';
 
@@ -50,17 +50,6 @@ class DashBoardComponent extends Component {
       this.addUserName = this.addUserName.bind(this);
     }
 
-  static propTypes = {
-      /* user is an array and evry item is an object, so they have propTypes as shape.*/
-      user: PropTypes.shape({
-                          id: PropTypes.number,// throws a warning if the id is not a string.
-                          name: PropTypes.string,// throws a warning if the name is not a string.
-                          isActive:PropTypes.bool,// throws a warning if the isActive is not a boolean.
-                          }),
-
-
-    color: PropTypes.bool,//throws a warning if the color is not a boolean.
-  }
 
 /*A method which controls and changes the value of the input field in the form by using setState */
   handleChange(event) {

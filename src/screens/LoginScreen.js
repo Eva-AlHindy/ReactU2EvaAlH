@@ -8,7 +8,7 @@ And two methods:
 import React, { Component } from 'react';
 import {Button,Form} from 'react-bootstrap';
 import CardComponent from '../components/CardComponent';
-import PropTypes from 'prop-types';
+
 
 class LoginScreen extends Component {
   constructor(props) {
@@ -20,9 +20,6 @@ class LoginScreen extends Component {
   this.Login = this.Login.bind(this);
   }
 
-  static propTypes = {
-    info: PropTypes.string,// throws a warning if the info is not a string
-  }
 
 /*A method which controls and changes the value of the input field in the form by using setState */
   handleChange(event) {

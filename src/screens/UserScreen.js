@@ -8,9 +8,15 @@ or redirect to LoginScreen.
 import React, { Component } from 'react';
 import { Redirect } from "react-router-dom";
 import CardComponent from '../components/CardComponent';
+import PropTypes from 'prop-types';
+
 
 class UserScreen extends Component {
-  
+  static propTypes = {
+                  history: PropTypes.object,
+                  location: PropTypes.object,
+                  match: PropTypes.object
+  }
   render() {
     const user = this.props.match.params.id;
       return (
